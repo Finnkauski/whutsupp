@@ -6,17 +6,17 @@ import regex as re
 # third party 
 import toml
 
-# project
-from functions.compose import compose
-from functions.parse   import parse 
+from numpy import array
 
+# project
+from functions import compose, parse, clean
 
 # -- parse
 with open('data/text.txt', 'r') as f:
     lines = f.readlines()
 
-    config = toml.load('config.ini')
-    
-l = list(parse(lines))
+config = toml.load('config.ini')
 
+pipe = compose(array, list, clean, parse)
+l = pipe(lines)
 

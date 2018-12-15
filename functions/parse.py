@@ -3,15 +3,13 @@
 import re
 import functools
 
-from datetime import datetime
-
 # third party
 import toml 
 
 # project
 from functions.compose import compose
 
-# config 
+# -- config 
 config         = toml.load('config.ini')
 match_pattern  = config['format']['match']
 remove_pattern = config['format']['remove']
