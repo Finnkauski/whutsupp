@@ -17,6 +17,6 @@ with open('data/text.txt', 'r') as f:
 
     config = toml.load('config.ini')
     
-l = parse(lines)
+l = list(parse(lines))
 
 
