@@ -1,16 +1,17 @@
 # -- imports
 # base
 import functools
+import itertools
 import re
 
 # third party 
 import toml
+import spacy
 
-from numpy import array
+from pandas import DataFrame
 
 # project
-from functions import compose, parse, clean
-from woffle.woffle.embed.numeric.spacy.embed import embed
+from functions import compose, parse, clean, convert, embed
 
 # -- parse
 with open('data/text.txt', 'r') as f:
@@ -18,5 +19,8 @@ with open('data/text.txt', 'r') as f:
 
 config = toml.load('config.ini')
 
-pipe = compose(array, list, clean, parse)
+pipe = compose(DataFrame, list, embed, convert, clean, parse)
 l = pipe(lines)
+
+
+
