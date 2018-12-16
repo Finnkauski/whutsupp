@@ -5,3 +5,4 @@ tmp/
 data/
 Pipfile.lock
 Pipfile
+__pycache__/
