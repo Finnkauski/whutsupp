@@ -13,8 +13,12 @@ from functions.compose import compose
 config   = toml.load('config.ini')
 
 # -- definitions
-letters  = lambda s: re.sub('[^A-z ]', '', s)
+letters = lambda s: re.sub('[^A-z ]', '', s)
 
-clean_   = compose(str.lower, letters)
-clean    = lambda iterable: map(lambda row: list(row) + [clean_(row[3])], iterable)
 
+# -- create pipe
+pipe    = compose(str.lower, letters)
+def clean_(d):
+    d['clean'] = pipe(d['msg'])
+    return d
+clean   = functools.partial(map, clean_)
