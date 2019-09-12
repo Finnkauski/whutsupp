@@ -1,5 +1,6 @@
 # WhutsUpp 
 A simple set of tools for WhatsApp text analysis with complex ambitions.
+Its a work in progress. Not documented, tested or CI'd
 
 ## Usage
 
